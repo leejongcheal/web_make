@@ -1,0 +1,2 @@
+<input type="button" value="white" onclick="document.getElementById('target').className='white'" />
+<input type="button" value="black" onclick="document.getElementById('target').className='black'"  />

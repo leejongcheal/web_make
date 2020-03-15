@@ -1,0 +1,4 @@
+<h2>자바스크립트란?</h2>
+			<ul>
+				<li>JavaScript는 html을 제어합니다.</li>
+			</ul>
