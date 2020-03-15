@@ -37,11 +37,21 @@
 		</div>
 		<article>
 			<?php 
+				// if(!empty($_GET['id'])){
+				// 	echo file_get_contents($_GET['id'].".txt");
+				// }
+				// else{
+				// 	echo file_get_contents("00.txt");
+				// }
 				if(!empty($_GET['id'])){
-					echo file_get_contents($_GET['id'].".txt");
+					$sql = "select * from topic where id=".$_GET['id'];
+					$result = mysqli_query($conn,$sql);
+					$row = mysqli_fetch_assoc($result);
+					echo '<h2>'.$row['title'].'</h>';
+					echo $row['description'];
 				}
 				else{
-					echo file_get_contents("00.txt");
+					echo "대문 입니다.";
 				}
 			?>
 		</article>
