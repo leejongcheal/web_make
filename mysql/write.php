@@ -37,24 +37,18 @@
 			<a href="http://localhost/mysql/write.php">쓰기</a>
 		</div>
 		<article>
-			<?php 
-				// if(!empty($_GET['id'])){
-				// 	echo file_get_contents($_GET['id'].".txt");
-				// }
-				// else{
-				// 	echo file_get_contents("00.txt");
-				// }
-				if(!empty($_GET['id'])){
-					$sql = "select * from topic where id=".$_GET['id'];
-					$result = mysqli_query($conn,$sql);
-					$row = mysqli_fetch_assoc($result);
-					echo '<h2>'.$row['title'].'</h><br>';
-					echo $row['description'];
-				}
-				else{
-					echo "대문 입니다.";
-				}
-			?>
+		<form action="process.php" method = "POST">
+            <p>
+                제목: <input type="text" name="title">
+            </p>
+            <p>
+                작성자: <input type="text" name = "author">
+            </p>
+            <p>
+                본문: <textarea name="description"></textarea>
+            </p>
+            <input type="submit">
+        </form>
 		</article>
 	</body>
 </html>
