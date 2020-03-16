@@ -48,7 +48,8 @@
 					$sql = "select * from topic where id=".$_GET['id'];
 					$result = mysqli_query($conn,$sql);
 					$row = mysqli_fetch_assoc($result);
-					echo '<h2>'.$row['title'].'</h><br>';
+					echo '<h2>'.$row['title'].'</h2>';
+					echo "<p>".$row['author']."</p>";
 					echo $row['description'];
 				}
 				else{
