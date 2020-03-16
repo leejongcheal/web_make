@@ -25,7 +25,7 @@
 				 <?php
 				// echo file_get_contents("classlist.txt");
 				while($row = mysqli_fetch_assoc($result)){//쿼리결과의 행을 순차적으로 가져옴
-					echo "<li><a href=http://localhost/mysql/index.php?id=".$row['id'].">".$row['title']."</a></li>\n";
+					echo "<li><a href=http://localhost/mysql/index.php?id=".$row['id'].">".htmlspecialchars($row['title'])."</a></li>\n";
 				}
 				?> 
 			</ol>
@@ -50,9 +50,10 @@
 					from topic left join user on topic.author = user.id where topic.id = ".$_GET['id'];
 					$result = mysqli_query($conn,$sql);
 					$row = mysqli_fetch_assoc($result);
-					echo '<h2>'.$row['title'].'</h2>';
-					echo "<p>author : ".$row['name']."</p>";
-					echo $row['description'];
+					echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
+					echo "<p>author : ".htmlspecialchars($row['name'])."</p>";
+					echo strip_tags($row['description'],"<a><h1><h2><h3><h4><h5>
+					<ul><ol><li>");
 				}
 				else{
 					echo "대문 입니다.";
