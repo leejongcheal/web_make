@@ -45,11 +45,13 @@
 				// 	echo file_get_contents("00.txt");
 				// }
 				if(!empty($_GET['id'])){
-					$sql = "select * from topic where id=".$_GET['id'];
+					// $sql = "select * from topic where id=".$_GET['id'];
+					$sql = "select topic.id, title, author, user.name, description 
+					from topic left join user on topic.author = user.id where topic.id = ".$_GET['id'];
 					$result = mysqli_query($conn,$sql);
 					$row = mysqli_fetch_assoc($result);
 					echo '<h2>'.$row['title'].'</h2>';
-					echo "<p>".$row['author']."</p>";
+					echo "<p>author : ".$row['name']."</p>";
 					echo $row['description'];
 				}
 				else{
