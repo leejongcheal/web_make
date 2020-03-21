@@ -6,6 +6,9 @@
     background-color: black;
     color: white;
 }
+#logo {
+    width: 100px;
+}
 /* header h1 {
     border-bottom: 1px solid grey;
     padding: 30px;
