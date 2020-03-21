@@ -23,7 +23,7 @@
 			</header>
 			<div class = "row">
 				<nav class ="col-md-3">
-					<ol>
+					<ol class= "nav nav-pills nav-stacked">
 						<?php
 						while($row = mysqli_fetch_assoc($result)){//쿼리결과의 행을 순차적으로 가져옴
 							echo "<li><a href=http://localhost/mysql/index.php?id=".$row['id'].">".htmlspecialchars($row['title'])."</a></li>\n";
@@ -32,12 +32,6 @@
 					</ol>
 				</nav>
 				<div class ="col-md-9">
-					<div id ="control">
-					<?php
-							echo file_get_contents("button_f.txt");
-					?>
-						<a href="http://localhost/mysql/write.php">쓰기</a>
-					</div>
 					<article>
 						<?php 
 							if(!empty($_GET['id'])){
@@ -54,7 +48,15 @@
 								echo "대문 입니다.";
 							}
 						?>
-					</article>			
+					</article>	
+					<hr>		
+					<div id ="control">
+						<div class="btn-group">
+						<input type="button" value="white" onclick="document.getElementById('target').className='white'" class="btn btn-default btn-lg"/>
+						<input type="button" value="black" onclick="document.getElementById('target').className='black'"  class="btn btn-default btn-lg"/>
+						</div>
+						<a href="http://localhost/mysql/write.php" class="btn btn-success btn-lg">쓰기</a>
+					</div>
 				</div>
 				
 			</div>

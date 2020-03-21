@@ -9,6 +9,14 @@
 #logo {
     width: 100px;
 }
+.container-fluid {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+#control {
+    margin-bottom: 40px;
+}
 /* header h1 {
     border-bottom: 1px solid grey;
     padding: 30px;
